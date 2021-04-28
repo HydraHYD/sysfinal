@@ -1,0 +1,58 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand text-white" href="http://localhost:5000/main">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+          <a class="nav-link text-white" href="http://localhost:5000/booklist">Books<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link text-white" href="http://localhost:5000/memberlist">Members</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actions
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-white" href="http://localhost:5000/option">Checkout</a>
+          <a class="dropdown-item text-white" href="http://localhost:5000/enterbookdata">Add Book</a>
+    </ul>
+  </div>
+</nav>
+
+{% endblock %}
+
+
+{% block content %}
+<body class = "bg-secondary text-white">
+
+<div class = "container ml-2 mt-4">
+<form action="{{ url_for('addbook')}}" method = "POST">
+    <label for="bid"><h5>BookID:</h5></label>
+    <input type="text" id="bid" name="bid"><br><br>
+    <label for="tit"><h5>Book Title:</h5></label>
+    <input type="text" id="tit" name="tit"><br><br>
+    <label for="auth"><h5>Book Author:</h5></label>
+    <input type="text" id="auth" name="auth"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+</body>
+{% endblock %}

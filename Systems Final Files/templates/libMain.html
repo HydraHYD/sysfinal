@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+
+{% block styles %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+{% endblock %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+{% endblock %}
+
+
+{% block content %}
+<body class = "container-fluid bg-secondary text-white">
+  <br>
+  <div class = "container w-50 h-50 text-white bg-dark p-5">
+  <h4>
+  <center>
+    <form action="{{ url_for('processnum')}}" method = "POST">
+      <label for="mnum">Member Number:</label>
+      <input type="text" id="mnum" name="mnum"><br><br>
+      <input type="submit" value="Submit">
+    </form>
+    <br>
+
+    <form action="register">
+      <input type="submit" value="Register">
+    </form>
+  </center>
+  </h4>
+  </div>
+  </body>
+{% endblock %}
